@@ -1,3 +1,11 @@
+/* Common CSS */
+p.cite {
+    color: #bbb;
+    float: right;
+    font-size: 70%;
+}
+
+/* Per-slide CSS */
 #title span {
     font-size: 70%;
     opacity: .6;
@@ -5,4 +13,14 @@
 #title p {
     font-size: 40%;
     margin-top: 3em;
+}
+
+#euler .portrait {
+    float: right;
+    position: relative;
+    z-index: 1;
+}
+#euler ul {
+    position: relative;
+    z-index: 0;
 }
