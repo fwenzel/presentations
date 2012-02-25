@@ -24,3 +24,7 @@ p.cite {
     position: relative;
     z-index: 0;
 }
+
+#problem2 .triangle {
+    text-align: center;
+}

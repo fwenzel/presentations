@@ -98,7 +98,7 @@ print str(sum(int(n) for n in numbers.splitlines()))[:10]</code></pre>
 <h3 class="slide">Awesome!!! ... or is it</h3>
 </section>
 
-<section class="slide">
+<section class="slide" id="problem1-analysis">
 <h2>Why is this overoptimized?</h2>
 <ul>
   <li class="slide">Python, unlike C, can handle long numbers just fine, usually
@@ -109,6 +109,49 @@ print str(sum(int(n) for n in numbers.splitlines()))[:10]</code></pre>
   change in the near future.</li>
   <li class="slide">Educated guess: With twice, or 10 times, as many numbers, the
   simple Python solution would still work just fine.</li>
+</ul>
+</section>
+
+<section class="slide" id="problem2">
+<h2>Problem 2</h2>
+<div class="slide">
+  <p>A <strong>path</strong> through a triangle like this is defined by starting
+  at the top and moving either left or right to the next number below, until we
+  reach the bottom. The <strong>total</strong> of a path through the triangle is
+  the sum of all the numbers in such a path.</p>
+  <p>Find the <strong>maximum total</strong> from <strong>top to bottom</strong> of
+  the triangle below:</p>
+
+  <pre class="triangle">75
+95 64
+17 47 82
+18 35 87 10
+20 04 82 47 65
+19 01 23 75 03 34
+88 02 77 73 07 63 67
+99 65 04 28 06 16 70 92
+41 41 26 56 83 40 80 70 33
+41 48 72 33 47 32 37 16 94 29
+53 71 44 65 25 43 91 52 97 51 14
+70 11 33 28 77 73 17 78 39 68 17 57
+91 71 52 38 17 14 91 43 58 50 27 29 48
+63 66 04 68 89 53 67 30 73 16 69 87 40 31
+04 62 98 27 23 09 70 98 73 93 38 53 60 04 23</pre>
+
+  <p class="cite">Project Euler: Problem 18. http://projecteuler.net/problem=18</p>
+  </div>
+
+<div class="slide">
+  <p>Intuitive solution:</p>
+  <ul>
+    <li>Generate all paths</li>
+    <li>Determine their totals</li>
+    <li>Pick the maximum</li>
+  </ul>
+</div>
+
+<h3 class="slide">Anything wrong with this?</h3>
+</section>
 
 <!-- Other extension HTML snippets go here, at the bottom of the deck container. -->
 
