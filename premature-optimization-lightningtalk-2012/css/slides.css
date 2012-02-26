@@ -4,6 +4,10 @@ p.cite {
     float: right;
     font-size: 70%;
 }
+.deck-container .slide .deck-before,
+.deck-container .slide .deck-previous {
+    opacity: 1;
+}
 
 /* Per-slide CSS */
 #title span {
@@ -27,4 +31,10 @@ p.cite {
 
 #problem2 .triangle {
     text-align: center;
+}
+#problem2 .solution.deck-previous {
+    float: left;
+}
+#problem2 h3 {
+    float: right;
 }

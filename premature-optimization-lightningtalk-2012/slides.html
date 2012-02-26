@@ -51,8 +51,7 @@
 <p>Work out the <strong>first ten digits</strong> of the <strong>sum</strong>
 of the following <strong>one-hundred 50-digit numbers</strong>.</p>
 
-<div class="slide">
-  <pre><code>37107287533902102798797998220837590246510135740250
+<pre><code>37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
 74324986199524741059474233309513058123726617309629
 91942213363574161572522430563301811072406154908250
@@ -66,8 +65,7 @@ of the following <strong>one-hundred 50-digit numbers</strong>.</p>
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690</code></pre>
 
-  <p class="cite">Project Euler: Problem 13. http://projecteuler.net/problem=13</p>
-</div>
+<p class="cite">Project Euler: Problem 13. http://projecteuler.net/problem=13</p>
 
 <div class="slide">
   <p>Simple Python solution:</p>
@@ -105,8 +103,6 @@ print str(sum(int(n) for n in numbers.splitlines()))[:10]</code></pre>
   without overflows.</li>
   <li class="slide">There's no indication the Python solution was inefficient in the
   first place.</li>
-  <li class="slide">There's no indication the problem size is dramatically going to
-  change in the near future.</li>
   <li class="slide">Educated guess: With twice, or 10 times, as many numbers, the
   simple Python solution would still work just fine.</li>
 </ul>
@@ -114,7 +110,7 @@ print str(sum(int(n) for n in numbers.splitlines()))[:10]</code></pre>
 
 <section class="slide" id="problem2">
 <h2>Problem 2</h2>
-<div class="slide">
+<div>
   <p>A <strong>path</strong> through a triangle like this is defined by starting
   at the top and moving either left or right to the next number below, until we
   reach the bottom. The <strong>total</strong> of a path through the triangle is
@@ -141,7 +137,7 @@ print str(sum(int(n) for n in numbers.splitlines()))[:10]</code></pre>
   <p class="cite">Project Euler: Problem 18. http://projecteuler.net/problem=18</p>
   </div>
 
-<div class="slide">
+<div class="slide solution">
   <p>Intuitive solution:</p>
   <ul>
     <li>Generate all paths</li>
@@ -151,6 +147,69 @@ print str(sum(int(n) for n in numbers.splitlines()))[:10]</code></pre>
 </div>
 
 <h3 class="slide">Anything wrong with this?</h3>
+</section>
+
+<section class="slide" id="problem2-whatif">
+<h2>What if...</h2>
+<ul>
+  <li class="slide">For this triangle, there are <strong>16,384 possible
+    paths</strong>.</li>
+  <li class="slide">If the triangle <strong>doubles</strong> in height, the
+  number of paths <strong>quadruples</strong>.</li>
+  <li class="slide">i.e., for a triangle of height <strong><code>n</code></strong>,
+  there are <strong><code>2<sup>n-1</sup></code></strong> possible paths.</li>
+</ul>
+
+<h2 class="slide">Let's fix this.</h2>
+<ul>
+  <li class="slide">From the bottom up, assign to every node its own weight plus
+  the maximum of its two children's weights.</li>
+  <li class="slide">When done, every node will have a weight assigned to it based
+  on its maximum potential of reaching higher numbers below.</li>
+  <li class="slide">The <strong>top node</strong> contains the <strong>maximum
+    potential</strong> of the entire triangle. <strong>Solved!</strong></li>
+  <li class="slide">(If we want to find the ideal path, we just need to start
+  at the top, always moving on to the maximum child node.)</li>
+</ul>
+</section>
+
+<section class="slide" id="problem2-analysis">
+<h2>Why was this a good optimization?</h2>
+<ul>
+  <li class="slide">Our intuitive algorithm has <strong>exponential</strong>
+  complexity of <strong>O(2<sup>n</sup>)</strong>.</li>
+  <li class="slide">For a triangle with 100 lines, we'd need to analyze
+  <strong>633,825,300,114,114,700,748,351,602,688 paths!</strong></li>
+  <li class="slide">The better algorithm is a flavor of the <a
+    href="http://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm">Bellman-Ford
+    Algorithm</a> and has <strong>linear complexity</strong> of
+  <strong><code>O(n)</code></strong>.</li>
+  <li class="slide">The improved algorithm works great even for triangles
+  hundreds of lines high.</li>
+</ul>
+</section>
+
+<section class="slide" id="summary">
+<h2>Summary</h2>
+<ul>
+  <li class="slide">Simple &gt;&gt; complex</li>
+  <li class="slide">Don't optimize for the heck of it</li>
+  <li class="slide">unless you have evidence that your solution is inefficient
+  and won't survive expectable changes in problem size.</li>
+  <li class="slide">If your solution is already inefficient now, it won't be
+  long before it breaks.</li>
+  <li class="slide">So look for better methods, including (obviously) efficient
+  algorithms, dynamic programming, memoization, caching, deferred execution, ...</li>
+</ul>
+
+<h2 class="slide">In short:</h2>
+<h3 class="slide">Avoid premature optimization.</h3>
+<h3 class="slide">But avoiding premature optimization is not an excuse for bad
+algorithms.</h3>
+</section>
+
+<section class="slide">
+<h2>Thanks!</h2>
 </section>
 
 <!-- Other extension HTML snippets go here, at the bottom of the deck container. -->
