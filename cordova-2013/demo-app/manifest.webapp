@@ -1,0 +1,11 @@
+{
+    "launch_path":"/index.html",
+    "installs_allowed_from":["*"],
+    "version":"0.0.1",
+    "name":"HelloCordova",
+    "description": "Hello!",
+    "pkgName":"io.cordova.hellocordova",
+    "icons": {
+        "128": "/res/icon/firefoxos/icon-128.png"
+    }
+}

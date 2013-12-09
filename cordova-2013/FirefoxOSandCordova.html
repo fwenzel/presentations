@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<!-- <html lang="en-US"> -->
+<html lang="en-US" class="fade">
+<!--
+  ^ a class of "fade" makes slides fade smoothly into one another
+ -->
+<!-- <html lang="en-US" class="nonumbers"> -->
+<!--
+  If you want no numbers on the slides add a "nonumbers" class
+  to the HTML element.
+  Adding a class of "fade" will make slides fade into another.
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>Firefox OS</title>
+<!--
+  If you upload your slides to the web, ensure that you have
+  a good title - this shows up in search results and social
+  media links
+ -->
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+</head>
+<body class="list">
+
+  <header class="caption">
+    <h1>Firefox OS integration with Cordova/PhoneGap</h1>
+    <p class="footer">
+      Fred Wenzel &lt;fred@mozilla.com&gt;
+    </p>
+  </header>
+  <aside class="talkdescription">
+    <p class="abstract">
+      <strong>Abstract: </strong>
+       This talk discusses Firefox OS and the integration points with Cordova.
+       <button onclick="goFullScreen()">Go fullscreen</button>
+    </p>
+  </aside>
+
+
+  <div id="cover" class="slide"><div>
+    <section>
+      <header>
+        <h2>Firefox OS integration with Cordova</h2>
+      </header>
+      <img src="pictures/simdashcordova.png" class="middle" height="400" alt="Cordova!">
+      <small class="byline">
+        Fred Wenzel, Sr. Engineering Manager, Apps
+      </small>
+    </section>
+  </div></div>
+<!-- end slide block -->
+
+<!-- ===================================================================
+PHONEGAP INTEGRATION
+======================================================================== -->
+
+   <div id="native" class="slide h"><div>
+    <section>
+      <header>
+        <h2>Conversion of HTML5 to native code</h2>
+      </header>
+      <ul>
+        <div style="list-style-type: none;">
+        <li>
+          <img src="pictures/phonegapdiagramfxos.png"
+               alt="phonegap with firefox os" class="middle" height="400">
+        </li>
+        </div>
+      </ul>
+    </section>
+  </div></div>
+
+  <div id="cordovatomozilla" class="slide w"><div>
+    <section>
+      <header>
+        <h2>Wrapped HTML5 Apps</h2>
+      </header>
+      <img src="pictures/wrapper.png" class="middle" height="200px"
+           alt="Cordova to Firefox OS">
+    </section>
+    <small class="byline">
+      (graphic credit: Ria Joy)
+    </small>
+  </div></div>
+
+
+   <div id="cordovaint3" class="slide"><div>
+    <section>
+      <header>
+        <h2>Firefox OS App With Cordova</h2>
+      </header>
+      <pre>
+        <code>$ <strong>npm install</strong> -g cordova</code>
+    		<code>$ cordova <strong>create</strong> fxos-app</code>
+    		<code>$ cd fxos-app &amp;&amp; cordova <strong>platform add</strong> firefoxos</code>
+    		<code>$ cordova <strong>plugin add</strong> org.apache.cordova.dialogs</code>
+        <code>$ cordova plugin add org.apache.cordova.camera</code>
+    		<code>$ cordova <strong>prepare</strong></code>
+      </pre>
+      <footer class="notes">
+        To retrieve the photo all you need is a simple event handler in which you get the image as a data blob and you can play with it in your app.
+      </footer>
+    </section>
+  </div></div>
+
+
+   <div id="cordovamap" class="slide"><div>
+    <section>
+      <header>
+        <h2>Example camera getPicture</h2>
+      </header>
+      Cordova Camera get Picture Method:
+      <pre>
+    <code>navigator.camera.getPicture(showImage);</code>
+    </pre>
+
+    </section>
+  </div></div>
+
+
+  <div id="imageactivity" class="slide"><div>
+    <section>
+      <header>
+        <h2>Get an image from the phone </h2>
+      </header>
+      <img src="pictures/pick-activity.jpg" alt="Pick activity" class="right shadow">
+      <pre>
+        <code>var getphoto = new MozActivity({</code>
+        <code>  name: "pick",</code>
+        <code>  data: {</code>
+        <code>    type: ["image/png",</code>
+        <code>           "image/jpg", </code>
+        <code>           "image/jpeg"]</code>
+        <code>  }</code>
+        <code>});</code>
+      </pre>
+      <footer class="notes">
+        The 'pick' activity is probably the most useful one, as it allows you to tell the user that you want something from the device. In this case we define in the MIME type array that we are expecting an image. This would result in the screenshot shown on the right - the user gets asked to give us an image, either from the wallpaper or the photos folder or by taking a new photo with the camera.
+      </footer>
+    </section>
+  </div></div>
+
+
+  <div id="zomgapis" class="slide shout"><div>
+    <section>
+      <header>
+        <h2>demo();</h2>
+      </header>
+    </section>
+  </div></div>
+
+
+  <div id="thanks" class="slide"><div>
+    <section>
+      <header>
+        <h2>Thanks</h2>
+      </header>
+      <img src="pictures/redpanda.jpg" height="300" class="right" alt="Red panda (Firefox)">
+      <ul class="nobull">
+        <li>Fred Wenzel</li>
+        <li>Sr. Engineering Manager, Apps</li>
+        <li><a href="http://twitter.com/fwenzel">@fwenzel</a></li>
+      </ul>
+
+    <small class="byline">
+      Many thanks to<br>
+      <strong>Jason Weathersby, Piotr Zalewa and James Long</strong><br>
+      for their help putting this together!
+    </small>
+
+    </section>
+  </div></div>
+
+  <!--
+    To hide progress bar from entire presentation
+    just remove “progress” element.
+    -->
+  <div class="progress"><div></div></div>
+  <script src="scripts/script.js"></script>
+  <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>
