@@ -20,6 +20,11 @@
  -->
   <meta name="viewport" content="width=device-width, user-scalable=yes">
   <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+  <style>
+    #cover h3 {
+      font-size: 40%;
+    }
+  </style>
 </head>
 <body class="list">
 
@@ -42,6 +47,7 @@
     <section>
       <header>
         <h2>Firefox OS integration with Cordova</h2>
+        <h3>(<strong>Apache Cordova</strong> is the open source codebase for the <strong>Adobe PhoneGap</strong> product)</h2>
       </header>
       <img src="pictures/simdashcordova.png" class="middle" height="400" alt="Cordova!">
       <small class="byline">
@@ -96,7 +102,9 @@ PHONEGAP INTEGRATION
     		<code>$ cd fxos-app &amp;&amp; cordova <strong>platform add</strong> firefoxos</code>
     		<code>$ cordova <strong>plugin add</strong> org.apache.cordova.dialogs</code>
         <code>$ cordova plugin add org.apache.cordova.camera</code>
+        <code># Write your app!</code>
     		<code>$ cordova <strong>prepare</strong></code>
+        <code># Ready to deploy!</code>
       </pre>
       <footer class="notes">
         To retrieve the photo all you need is a simple event handler in which you get the image as a data blob and you can play with it in your app.
