@@ -45,10 +45,10 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-        
-        
-        
-        
+
+
+
+
  		function getPicture() {
 			function showImage(imgSrc) {
 				var img = document.createElement('img');
@@ -60,10 +60,12 @@ var app = {
 				});
 			}
 			function _blank() {};
+
 			navigator.camera.getPicture(showImage, _blank, {destinationType: 1});
+
 		}
 		var button = document.getElementById('getPicture');
-		button.addEventListener('click', getPicture, false);        
-        
+		button.addEventListener('click', getPicture, false);
+
     }
 };
